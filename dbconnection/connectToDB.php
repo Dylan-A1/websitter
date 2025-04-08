@@ -7,14 +7,18 @@
         $sql_db = "bluecare-database";
 
         $connection = @mysqli_connect($host, $user, $pwd, $sql_db);
+        
+        if (!$connection) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
 		require_once("initialise_databases.php");
 
         // Create table if it does not exist yet
 		try {
 			# Create Roles table
 			@mysqli_query($connection, $create_roles_table);
-			$roles_query = "SELECT * FROM roles";
-			$roles_result = mysqli_query($connection, $roles_query);
+			$roles_result = mysqli_query($connection, "SELECT * FROM roles")
 			
 			# Add roles
 			if(mysqli_num_rows($roles_result) === 0) {
