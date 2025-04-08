@@ -1,10 +1,10 @@
 <?php
     // Database Connection
     function connecttodb(callable $connectiontasks) {
-        $host = "feenix-mariadb.swin.edu.au";
-        $user = "s103852084";
-        $pwd = "i6VpWMz!NXz";
-        $sql_db = "s103852084_db";
+        $host = "bluecare-server.mysql.database.azure.com";
+        $user = "meomyhitnw@bluecare-server";
+        $password = "aYawUzzydrAH$$Mx";
+        $sql_db = "bluecare-database";
 
         $connection = @mysqli_connect($host, $user, $pwd, $sql_db);
 		require_once("initialise_databases.php");
